@@ -1,20 +1,27 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroy : MonoBehaviour {
 
-    private void OnBecameInvisible()
-    {
-        GameObject.Destroy(this.gameObject);        
-    }
+public class Destroy : MonoBehaviour {
+    
+
+    private GameObject unitychan;
+    
+
     // Use this for initialization
-    void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    void Start()
+    {
+        this.unitychan = GameObject.Find("unitychan");
+       
+    }
+
+    // Update is called once per frame
+    void Update()
+{ if (this.unitychan.transform.position.z >= this.gameObject.transform.position.z + 10)
+        {
+            Destroy(this.gameObject);
+        }
+    }
 }
